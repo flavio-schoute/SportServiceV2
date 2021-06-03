@@ -16,6 +16,61 @@
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
                 </div>
+
+                <!-- SportService -->
+                @if(auth()->user()->is_admin == 1)
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-jet-nav-link href="{{ route('createaccount.index') }}" :active="request()->routeIs('createaccount.index')">
+                            {{ __('Accounts aanmaken') }}
+                        </x-jet-nav-link>
+                    </div>
+
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-jet-nav-link>
+                            {{ __('Activiteiten invoeren') }}
+                        </x-jet-nav-link>
+                    </div>
+
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-jet-nav-link>
+                            {{ __('Deelname plek scholen') }}
+                        </x-jet-nav-link>
+                    </div>
+
+
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-jet-nav-link>
+                            {{ __('Gebruikers overzicht') }}
+                        </x-jet-nav-link>
+                    </div>
+
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-jet-nav-link>
+                            {{ __('Overzicht uitprinten') }}
+                        </x-jet-nav-link>
+                    </div>
+                @endif
+
+                <!-- School -->
+                @if(auth()->user()->is_admin == 0 || auth()->user()->is_admin == 1)
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-jet-nav-link>
+                            {{ __('Leerlingen invoeren') }}
+                        </x-jet-nav-link>
+                    </div>
+
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-jet-nav-link>
+                            {{ __('Activiteiten overzicht') }}
+                        </x-jet-nav-link>
+                    </div>
+
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-jet-nav-link>
+                            {{ __('Leerling overzicht') }}
+                        </x-jet-nav-link>
+                    </div>
+                @endif
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
