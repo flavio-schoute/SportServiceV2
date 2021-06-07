@@ -17,14 +17,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 // When the 'guest' enters the website it will automatically redirect to the login page
-Route::get('/', [WelcomeController::class, 'index']);
+Route::redirect('/', '/login');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 // SportService endpoints
-Route::group(['middleware' => 'auth'], function() {
-    Route::resource('createaccount', CreateAccountController::class);
-});
+//Route::group(['middleware' => 'auth'], function() {
+//    Route::resource('createaccount', CreateAccountController::class);
+//});
 
 require_once __DIR__ . '/jetstream.php';
 require_once __DIR__ . '/fortify.php';
