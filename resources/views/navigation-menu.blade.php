@@ -60,7 +60,7 @@
                     </div>
 
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-jet-nav-link>
+                        <x-jet-nav-link href="{{ route('activity-overview') }}" :active="request()->routeIs('activity-overview')">
                             {{ __('Activiteiten overzicht') }}
                         </x-jet-nav-link>
                     </div>
