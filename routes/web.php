@@ -1,8 +1,7 @@
 <?php
 
-use App\Http\Controllers\CreateAccountController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\SportService\ActivityOverviewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,9 +21,9 @@ Route::redirect('/', '/login');
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 // SportService endpoints
-//Route::group(['middleware' => 'auth'], function() {
-//    Route::resource('createaccount', CreateAccountController::class);
-//});
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('/activity-overview', [ActivityOverviewController::class, 'index'])->name('activity-overview');
+});
 
 require_once __DIR__ . '/jetstream.php';
 require_once __DIR__ . '/fortify.php';
