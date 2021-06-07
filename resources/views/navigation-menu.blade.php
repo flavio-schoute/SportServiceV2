@@ -20,7 +20,7 @@
                 <!-- SportService -->
                 @if(auth()->user()->is_admin == 1)
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-jet-nav-link href="{{ route('createaccount.index') }}" :active="request()->routeIs('createaccount.index')">
+                        <x-jet-nav-link>
                             {{ __('Accounts aanmaken') }}
                         </x-jet-nav-link>
                     </div>
