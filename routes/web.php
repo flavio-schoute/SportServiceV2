@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\School\ActivityOverviewController;
 use App\Http\Controllers\School\AddStudentsController;
+use App\Http\Controllers\SportService\AddSchoolController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,6 +26,11 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [DashboardCon
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/add-students', [AddStudentsController::class, 'index'])->name('add-students');
     Route::get('/activity-overview', [ActivityOverviewController::class, 'index'])->name('activity-overview');
+});
+
+// SportService endpoints
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('/add-schools', [AddSchoolController::class, 'index'])->name('add-schools');
 });
 
 require_once __DIR__ . '/jetstream.php';

@@ -20,7 +20,7 @@
                 <!-- SportService -->
                 @if(auth()->user()->is_admin == 1)
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-jet-nav-link>
+                        <x-jet-nav-link href="{{ route('add-schools') }}" :active="request()->routeIs('add-schools')">
                             {{ __('Scholen aanmaken') }}
                         </x-jet-nav-link>
                     </div>
