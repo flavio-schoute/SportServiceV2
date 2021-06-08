@@ -1,7 +1,8 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\SportService\ActivityOverviewController;
+use App\Http\Controllers\School\ActivityOverviewController;
+use App\Http\Controllers\School\AddStudentsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,8 +21,9 @@ Route::redirect('/', '/login');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-// SportService endpoints
+// School endpoints
 Route::group(['middleware' => 'auth'], function() {
+    Route::get('/add-students', [AddStudentsController::class, 'index'])->name('add-students');
     Route::get('/activity-overview', [ActivityOverviewController::class, 'index'])->name('activity-overview');
 });
 

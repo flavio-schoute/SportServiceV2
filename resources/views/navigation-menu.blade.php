@@ -54,7 +54,7 @@
                 <!-- School -->
                 @if(auth()->user()->is_admin == 0 || auth()->user()->is_admin == 1)
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-jet-nav-link>
+                        <x-jet-nav-link href="{{ route('add-students') }}" :active="request()->routeIs('add-students')">
                             {{ __('Leerlingen invoeren') }}
                         </x-jet-nav-link>
                     </div>

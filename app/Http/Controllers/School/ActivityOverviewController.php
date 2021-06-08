@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\SportService;
+namespace App\Http\Controllers\School;
 
 use App\Http\Controllers\Controller;
 use App\Models\Sports;
