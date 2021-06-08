@@ -10,4 +10,8 @@ class AddStudentsController extends Controller {
     public function index() {
         return view('school.add-students');
     }
+
+    public function store() {
+
+    }
 }

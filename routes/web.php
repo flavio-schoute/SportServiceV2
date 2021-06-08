@@ -25,6 +25,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [DashboardCon
 // School endpoints
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/add-students', [AddStudentsController::class, 'index'])->name('add-students');
+    Route::post('/add-students', [AddStudentsController::class, 'store']);
     Route::get('/activity-overview', [ActivityOverviewController::class, 'index'])->name('activity-overview');
 });
 
