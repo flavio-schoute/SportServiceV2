@@ -19,9 +19,18 @@
                     @csrf
 
                     <div>
+                        <x-jet-label for="school" value="{{ __('School') }}"/>
+                        <select name="school" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full">
+                            @foreach($school as $schools)
+                                <option value="{{$schools->school_id}}">School: {{$schools->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="mt-4">
                         <x-jet-label for="first_name" value="{{ __('Naam') }}"/>
                         <x-jet-input id="first_name" class="block mt-1 w-full" type="text" name="first_name" :value="old('first_name')"
-                                     required autofocus autocomplete="first_name"/>
+                                     required/>
                     </div>
 
                     <div class="mt-4">
@@ -40,9 +49,9 @@
                     </div>
 
                     <div class="mt-4">
-                        <x-jet-label for="birtday" value="{{ __('Geboorte datum') }}"/>
-                        <x-jet-input id="birtday" class="block mt-1 w-full" type="date" name="birtday"
-                                     :value="old('birtday')" required/>
+                        <x-jet-label for="birthday" value="{{ __('Geboorte datum') }}"/>
+                        <x-jet-input id="birthday" class="block mt-1 w-full" type="date" name="birthday"
+                                     :value="old('birthday')" required/>
                     </div>
 
 
