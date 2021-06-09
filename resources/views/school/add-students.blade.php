@@ -8,11 +8,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
-            <x-jet-authentication-card>
-                <x-slot name="logo">
-                    <x-jet-authentication-card-logo/>
-                </x-slot>
-
+            <div class="w-full sm:max-w-md mb-12 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
                 <x-jet-validation-errors class="mb-4"/>
 
                 <form method="POST" action="{{ route('add-students') }}">
@@ -55,13 +51,13 @@
                     </div>
 
 
-                    <div class="flex items-center justify-end mt-4">
-                        <x-jet-button class="ml-4">
+                    <div class="flex items-center justify-center mt-4">
+                        <x-jet-button>
                             {{ __('Leerling toevoegen') }}
                         </x-jet-button>
                     </div>
                 </form>
-            </x-jet-authentication-card>
+            </div>
 
 
             <footer class="pt-3 mt-4 text-gray-500 border-t-2 border-gray-400">
