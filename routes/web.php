@@ -32,6 +32,7 @@ Route::group(['middleware' => 'auth'], function() {
 // SportService endpoints
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/add-schools', [AddSchoolController::class, 'index'])->name('add-schools');
+	Route::post('/add-schools', [AddSchoolController::class, 'store']);
 });
 
 require_once __DIR__ . '/jetstream.php';
