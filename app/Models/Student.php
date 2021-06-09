@@ -30,4 +30,15 @@ class Student extends Model
         'group',
         'date_of_birth',
     ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'id_school' => 'integer',
+        'group' => 'integer',
+        'date_of_birth' => 'date',
+    ];
 }

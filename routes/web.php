@@ -30,8 +30,11 @@ Route::group(['middleware' => 'auth'], function() {
 
 // SportService endpoints
 Route::group(['middleware' => 'auth'], function() {
+    // To add school
     Route::get('/add-schools', [AddSchoolController::class, 'index'])->name('add-schools');
 	Route::post('/add-schools', [AddSchoolController::class, 'store']);
+
+	// To add providers for the sport activities
 	Route::get('/add-providers', [AddProviderController::class, 'index'])->name('add-providers');
 	Route::post('/add-providers', [AddProviderController::class, 'store']);
 });

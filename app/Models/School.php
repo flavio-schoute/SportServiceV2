@@ -8,8 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class School extends Model
 {
     use HasFactory;
-	
-	
+
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
 	public $timestamps = false;
 
 	 /**
@@ -18,7 +22,7 @@ class School extends Model
      * @var string
      */
     protected $table = 'school';
-	
+
 	protected $fillable = [
         'name',
         'email',

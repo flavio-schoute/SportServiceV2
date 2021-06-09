@@ -8,8 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Provider extends Model
 {
     use HasFactory;
-	
-	
+
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
 	public $timestamps = false;
 
 	 /**
@@ -18,7 +22,7 @@ class Provider extends Model
      * @var string
      */
     protected $table = 'providers';
-	
+
 	protected $fillable = [
         'name',
         'materials',

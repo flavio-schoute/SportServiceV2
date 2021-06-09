@@ -30,11 +30,11 @@ class AddStudentsController extends Controller {
 
         // Store the student
         Student::create([
-            'id_school' => (int) $request->school,
+            'id_school' => $request->school,
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
-            'group' => (int) $request->group,
-            'date_of_birth' => date('Y-m-d', strtotime($request->birthday))
+            'group' => $request->group,
+            'date_of_birth' => $request->birthday
         ]);
 
         // Redirect
