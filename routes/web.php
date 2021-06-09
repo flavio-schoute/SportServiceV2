@@ -4,6 +4,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\School\ActivityOverviewController;
 use App\Http\Controllers\School\AddStudentsController;
 use App\Http\Controllers\SportService\AddSchoolController;
+use App\Http\Controllers\SportService\AddProviderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,6 +34,9 @@ Route::group(['middleware' => 'auth'], function() {
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/add-schools', [AddSchoolController::class, 'index'])->name('add-schools');
 	Route::post('/add-schools', [AddSchoolController::class, 'store']);
+	Route::get('/add-providers', [AddProviderController::class, 'index'])->name('add-providers');
+	Route::post('/add-providers', [AddProviderController::class, 'store']);
+	
 });
 
 require_once __DIR__ . '/jetstream.php';
