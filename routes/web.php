@@ -5,6 +5,7 @@ use App\Http\Controllers\School\ActivityOverviewController;
 use App\Http\Controllers\School\AddStudentsController;
 use App\Http\Controllers\SportService\AddSchoolController;
 use App\Http\Controllers\SportService\AddProviderController;
+use App\Http\Controllers\SportService\AddTeacherController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,6 +38,12 @@ Route::group(['middleware' => 'auth'], function() {
 	// To add providers for the sport activities
 	Route::get('/add-providers', [AddProviderController::class, 'index'])->name('add-providers');
 	Route::post('/add-providers', [AddProviderController::class, 'store']);
+	
+	
+	// To add Teachers for Schools
+	Route::get('/add-teachers', [AddTeacherController::class, 'index'])->name('add-teachers');
+	Route::post('/add-teachers', [AddTeacherController::class, 'store']);
+
 });
 
 require_once __DIR__ . '/jetstream.php';
