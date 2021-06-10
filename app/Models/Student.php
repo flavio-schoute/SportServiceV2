@@ -32,6 +32,15 @@ class Student extends Model
     ];
 
     /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'student_id',
+    ];
+
+    /**
      * The attributes that should be cast to native types.
      *
      * @var array

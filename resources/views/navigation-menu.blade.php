@@ -30,7 +30,7 @@
                             {{ __('Activiteiten invoeren') }}
                         </x-jet-nav-link>
                     </div>
-					
+
 					<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
 						<x-jet-nav-link href="{{ route('add-providers') }}" :active="request()->routeIs('add-providers')">
 							{{ __('Aanbieders invoeren') }}
@@ -72,7 +72,7 @@
                     </div>
 
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-jet-nav-link>
+                        <x-jet-nav-link href="{{ route('student-overview') }}" :active="request()->routeIs('student-overview')">
                             {{ __('Leerling overzicht') }}
                         </x-jet-nav-link>
                     </div>

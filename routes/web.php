@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\School\ActivityOverviewController;
 use App\Http\Controllers\School\AddStudentsController;
+use App\Http\Controllers\School\StudentOverviewController;
 use App\Http\Controllers\SportService\AddSchoolController;
 use App\Http\Controllers\SportService\AddProviderController;
 use Illuminate\Support\Facades\Route;
@@ -23,14 +24,21 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [DashboardCon
 
 // School endpoints
 Route::group(['middleware' => 'auth'], function() {
+    // To add student to the database / application
     Route::get('/add-students', [AddStudentsController::class, 'index'])->name('add-students');
     Route::post('/add-students', [AddStudentsController::class, 'store']);
+
+    // All endpoints related to activities
     Route::get('/activity-overview', [ActivityOverviewController::class, 'index'])->name('activity-overview');
+
+    // All endpoints related to student overview
+    Route::get('/student-overview', [StudentOverviewController::class, 'index'])->name('student-overview');
+    Route::delete('/student-overview/{id}', [StudentOverviewController::class, 'destroy'])->name('student-overview.destroy');
 });
 
 // SportService endpoints
 Route::group(['middleware' => 'auth'], function() {
-    // To add school
+    // To add school to the database / application
     Route::get('/add-schools', [AddSchoolController::class, 'index'])->name('add-schools');
 	Route::post('/add-schools', [AddSchoolController::class, 'store']);
 
