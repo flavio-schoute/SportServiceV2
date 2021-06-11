@@ -81,7 +81,7 @@
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                            <a href="" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Bewerken</a>
+                                            <a href="{{ route('student-overview.edit', $student->student_id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Bewerken</a>
                                             <form class="inline-block" action="{{ route('student-overview.destroy', $student->student_id) }}" method="POST" onsubmit="return confirm('Weet je het zeker?');">
                                                 @csrf
                                                 @method('DELETE')

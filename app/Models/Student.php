@@ -10,6 +10,14 @@ class Student extends Model
     use HasFactory;
 
     /**
+     * The primary key for the model.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'student_id';
+
+
+    /**
      * Indicates if the model should be timestamped.
      *
      * @var bool
@@ -50,4 +58,6 @@ class Student extends Model
         'group' => 'integer',
         'date_of_birth' => 'date',
     ];
+
+
 }

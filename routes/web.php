@@ -34,7 +34,9 @@ Route::group(['middleware' => 'auth'], function() {
 
     // All endpoints related to student overview
     Route::get('/student-overview', [StudentOverviewController::class, 'index'])->name('student-overview');
-    Route::delete('/student-overview/{id}', [StudentOverviewController::class, 'destroy'])->name('student-overview.destroy');
+    Route::delete('/student-overview/{student}', [StudentOverviewController::class, 'destroy'])->name('student-overview.destroy');
+    Route::get('/student-overview/{student}/edit', [StudentOverviewController::class, 'edit'])->name('student-overview.edit');
+    Route::put('/student-overview/{student}', [StudentOverviewController::class, 'update'])->name('student-overview.update');
 });
 
 // SportService endpoints
@@ -46,8 +48,8 @@ Route::group(['middleware' => 'auth'], function() {
 	// To add providers for the sport activities
 	Route::get('/add-providers', [AddProviderController::class, 'index'])->name('add-providers');
 	Route::post('/add-providers', [AddProviderController::class, 'store']);
-	
-	
+
+
 	// To add Teachers for Schools
 	Route::get('/add-teachers', [AddTeacherController::class, 'index'])->name('add-teachers');
 	Route::post('/add-teachers', [AddTeacherController::class, 'store']);
