@@ -10,6 +10,13 @@ class Teacher extends Model
     use HasFactory;
 
     /**
+     * The primary key for the model.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'teacher_id';
+
+    /**
      * Indicates if the model should be timestamped.
      *
      * @var bool
