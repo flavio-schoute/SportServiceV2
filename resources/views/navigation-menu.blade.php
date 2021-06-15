@@ -54,18 +54,15 @@
 								<x-jet-dropdown-link href="{{ route('add-teachers') }}" :active="request()->routeIs('add-teachers')">
 									{{ __('Leraren invoeren') }}
 								</x-jet-dropdown-link>
+								
+								<x-jet-dropdown-link href="{{ route('add-teachers') }}" :active="request()->routeIs('add-teachers')">
+									{{ __('Activiteiten invoeren') }}
+								</x-jet-dropdown-link>
 
 							</x-slot>
 
 						</x-jet-dropdown>
 					</div>
-			
-
-                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-jet-nav-link>
-                            {{ __('Activiteiten invoeren') }}
-                        </x-jet-nav-link>
-                    </div>
 
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-jet-nav-link>
