@@ -4,6 +4,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\School\ActivityOverviewController;
 use App\Http\Controllers\School\AddStudentsController;
 use App\Http\Controllers\School\StudentOverviewController;
+use App\Http\Controllers\SportService\UserOverviewController;
 use App\Http\Controllers\SportService\AddSchoolController;
 use App\Http\Controllers\SportService\AddProviderController;
 use App\Http\Controllers\SportService\AddTeacherController;
@@ -53,6 +54,11 @@ Route::group(['middleware' => 'auth'], function() {
 	// To add Teachers for Schools
 	Route::get('/add-teachers', [AddTeacherController::class, 'index'])->name('add-teachers');
 	Route::post('/add-teachers', [AddTeacherController::class, 'store']);
+	
+	    // All endpoints related to User overview
+    Route::get('/user-overview', [UserOverviewController::class, 'index'])->name('user-overview');
+    Route::delete('/user-overview/{user}', [UserOverviewController::class, 'destroy'])->name('user-overview.destroy');
+    Route::put('/user-overview/{user}', [UserOverviewController::class, 'update'])->name('user-overview.update');
 
 });
 

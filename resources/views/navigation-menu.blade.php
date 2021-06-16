@@ -72,7 +72,7 @@
 
 
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-jet-nav-link>
+                        <x-jet-nav-link href="{{ route('user-overview') }}" :active="request()->routeIs('user-overview')">
                             {{ __('Gebruikers overzicht') }}
                         </x-jet-nav-link>
                     </div>
