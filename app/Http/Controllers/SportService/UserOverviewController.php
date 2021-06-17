@@ -12,14 +12,14 @@ use Illuminate\Support\Facades\DB;
 class UserOverviewController extends Controller {
 
     public function index() {
-        $users = DB::table('users')
-            ->select('users.*', 'name')
-            ->leftJoin('teacher', 'users.id_teacher', '=', 'teacher.teacher_id')
-            ->orderBy('users.id')
+        $teacher = DB::table('teacher')
+            ->select('teacher.*', 'school.name')
+            ->leftJoin('school', 'teacher.id_school', '=', 'school.school_id')
+            ->orderBy('school.name', 'ASC')
             ->get();
 
         return view('admin.user-overview', [
-            'users' => $users,
+            'users' => $teacher,
         ]);
     }
 }
