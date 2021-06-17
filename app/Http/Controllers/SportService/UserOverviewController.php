@@ -22,31 +22,4 @@ class UserOverviewController extends Controller {
             'users' => $users,
         ]);
     }
-
-    public function update(Request $request, User $user) {
-        // Validation
-        $this->validate($request, [
-            'school' => 'required',
-            'first_name' => 'required|string',
-            'last_name' => 'required|string',
-            'group' => 'required|integer',
-        ]);
-
-        $user->update([
-            'id_school' => $request->school,
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
-            'group' => $request->group,
-        ]);
-
-        return redirect()->route('user-overview')->with('success', 'Student met success bewerkt!');
-    }
-
-    public function destroy(User $user) {
-        // Select and delete the student from the database
-        $user->delete();
-
-        // Redirect to the student overview page and send a success message
-        return redirect()->route('user-overview')->with('success', 'Student verwijderd!');
-    }
 }
