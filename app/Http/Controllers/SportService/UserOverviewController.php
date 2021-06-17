@@ -18,8 +18,11 @@ class UserOverviewController extends Controller {
             ->orderBy('school.name', 'ASC')
             ->get();
 
+        $school = School::select('school_id', 'name', 'email')->get();
+
         return view('admin.user-overview', [
             'users' => $teacher,
+            'schools' => $school
         ]);
     }
 }
