@@ -33374,6 +33374,11 @@ select {
   --tw-backdrop-sepia: sepia(100%);
 }
 
+input:checked ~ .dot {
+  transform: translateX(100%);
+  background-color: #48bb78;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;

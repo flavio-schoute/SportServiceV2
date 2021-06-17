@@ -48,6 +48,10 @@
                                         <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             School
                                         </th>
+
+                                        <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Account status
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200">
@@ -67,6 +71,25 @@
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                             {{ $user->name }}
+                                        </td>
+
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+
+
+                                                <label for="toggle"
+                                                    class="flex items-center cursor-pointer">
+
+                                                    <!-- Toggle -->
+                                                    <div class="relative">
+                                                        <!-- Input -->
+                                                        <input id="toggle" type="checkbox" class="sr-only" />
+                                                        <!-- Line -->
+                                                        <div class="w-10 h-4 bg-gray-400 rounded-full shadow-inner"></div>
+                                                        <!-- Dot -->
+                                                        <div class="dot absolute w-6 h-6 bg-white rounded-full shadow -left-1 -top-1 transition"></div>
+                                                    </div>
+
+                                                </label>
                                         </td>
                                     </tr>
                                 @endforeach
