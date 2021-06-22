@@ -55,7 +55,7 @@
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                             <!-- Rounded switch -->
                                             <label class="switch">
-                                                <input data-id="{{$user->teacher_id}}" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="inActive"/>
+                                                <input class="toggle-class" data-id="{{ $user->teacher_id }}" type="checkbox" data-toggle="toggle" {{ $user->is_active ? 'checked' : '' }}>
                                                 <span class="slider round"></span>
                                             </label>
                                         </td>
@@ -63,13 +63,13 @@
                                 @endforeach
                                 </tbody>
                             </table>
-							
+
 							 <script>
 								  // $(function() {
 									// $('.toggle-class').change(function() {
-										// var status = $(this).prop('checked') == true ? 1 : 0; 
-										// var teacher_id = $(this).data('teacher_id'); 
-										 
+										// var status = $(this).prop('checked') == true ? 1 : 0;
+										// var teacher_id = $(this).data('teacher_id');
+
 										// $.ajax({
 											// type: "GET",
 											// dataType: "json",
@@ -81,60 +81,67 @@
 										// });
 									// })
 								  // })
+
+                                  $(function() {
+                                     const toggler = document.getElementsByClassName('toggle-class');
+                                      toggler.addEventListener("change", (event) => {
+                                          let status = toggler.checked === true ? 1 : 0;
+                                      });
+                                  });
 							 </script>
 
                             <!-- School -->
-                            <table class="min-w-full divide-y divide-gray-200 w-full">
-                                <thead>
-                                <tr>
-                                    <th scope="col" width="50" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        ID
-                                    </th>
-                                    <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Naam
-                                    </th>
-                                    <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Email
-                                    </th>
+{{--                            <table class="min-w-full divide-y divide-gray-200 w-full">--}}
+{{--                                <thead>--}}
+{{--                                <tr>--}}
+{{--                                    <th scope="col" width="50" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">--}}
+{{--                                        ID--}}
+{{--                                    </th>--}}
+{{--                                    <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">--}}
+{{--                                        Naam--}}
+{{--                                    </th>--}}
+{{--                                    <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">--}}
+{{--                                        Email--}}
+{{--                                    </th>--}}
 
-                                    <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Account status
-                                    </th>
-                                </tr>
-                                </thead>
-                                <tbody class="bg-white divide-y divide-gray-200">
-                                @foreach ($schools as $school)
-                                    <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            {{ $school->school_id}}
-                                        </td>
+{{--                                    <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">--}}
+{{--                                        Account status--}}
+{{--                                    </th>--}}
+{{--                                </tr>--}}
+{{--                                </thead>--}}
+{{--                                <tbody class="bg-white divide-y divide-gray-200">--}}
+{{--                                @foreach ($schools as $school)--}}
+{{--                                    <tr>--}}
+{{--                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">--}}
+{{--                                            {{ $school->school_id}}--}}
+{{--                                        </td>--}}
 
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            {{ $school->name }}
-                                        </td>
+{{--                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">--}}
+{{--                                            {{ $school->name }}--}}
+{{--                                        </td>--}}
 
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            {{ $user->email }}
-                                        </td>
+{{--                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">--}}
+{{--                                            {{ $user->email }}--}}
+{{--                                        </td>--}}
 
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            <label for="toggle" class="flex items-center cursor-pointer">
+{{--                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">--}}
+{{--                                            <label for="toggle" class="flex items-center cursor-pointer">--}}
 
-                                                <!-- Toggle -->
-                                                <div class="relative">
-                                                    <!-- Input -->
-                                                    <input id="toggle" type="checkbox" class="sr-only"/>
-                                                    <!-- Line -->
-                                                    <div class="w-10 h-4 bg-gray-400 rounded-full shadow-inner"></div>
-                                                    <!-- Dot -->
-                                                    <div class="dot absolute w-6 h-6 bg-white rounded-full shadow -left-1 -top-1 transition"></div>
-                                                </div>
-                                            </label>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
+{{--                                                <!-- Toggle -->--}}
+{{--                                                <div class="relative">--}}
+{{--                                                    <!-- Input -->--}}
+{{--                                                    <input id="toggle" type="checkbox" class="sr-only"/>--}}
+{{--                                                    <!-- Line -->--}}
+{{--                                                    <div class="w-10 h-4 bg-gray-400 rounded-full shadow-inner"></div>--}}
+{{--                                                    <!-- Dot -->--}}
+{{--                                                    <div class="dot absolute w-6 h-6 bg-white rounded-full shadow -left-1 -top-1 transition"></div>--}}
+{{--                                                </div>--}}
+{{--                                            </label>--}}
+{{--                                        </td>--}}
+{{--                                    </tr>--}}
+{{--                                @endforeach--}}
+{{--                                </tbody>--}}
+{{--                            </table>--}}
                         </div>
                     </div>
                 </div>

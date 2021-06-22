@@ -61,7 +61,6 @@ Route::group(['middleware' => 'auth'], function() {
 
     // All endpoints related to User overview
     Route::get('/user-overview', [UserOverviewController::class, 'index'])->name('user-overview');
-	Route::get('changeStatus', [UserOverviewController::class, 'changeStatus']);
     //Route::delete('/user-overview/{user}', [UserOverviewController::class, 'destroy'])->name('user-overview.destroy');
     //Route::put('/user-overview/{user}', [UserOverviewController::class, 'update'])->name('user-overview.update');
 

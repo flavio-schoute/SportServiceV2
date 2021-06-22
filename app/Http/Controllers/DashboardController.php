@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Carbon\Carbon;
+//use Carbon\Carbon;
 
 class DashboardController extends Controller {
 
     public function index() {
+        Carbon::setLocale('nl');
+
         $greetingMessage = "Goede avond!";
 
         /* This sets the $time variable to the current hour in the 24 hour clock format */
@@ -25,7 +27,7 @@ class DashboardController extends Controller {
 
         return view('dashboard', [
             'greeting' => $greetingMessage,
-            'today' => Carbon::today("Europe/Amsterdam")->format('l d-m-Y'),
+            'today' => Carbon::today("Europe/Amsterdam")->format('l d M Y'),
         ]);
     }
 }

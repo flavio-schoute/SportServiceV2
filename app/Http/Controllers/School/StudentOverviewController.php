@@ -13,22 +13,11 @@ class StudentOverviewController extends Controller {
 
     public function index() {
         // Bad solution, need to find better way
-
         if (Auth::user()->is_admin == 1) {
-            $students = DB::table('students')
-                ->select('students.*', 'school.name')
-                ->leftJoin('school', 'students.id_school', '=', 'school.school_id')
-                ->orderBy('students.id_school')
-                ->get();
+            $students = Student::with('school')->orderBy('id_school', 'desc')->get();
         } else {
-            $students = DB::table('students')
-                ->select('students.*', 'school.name')
-                ->leftJoin('school', 'students.id_school', '=', 'school.school_id')
-                ->orderBy('students.id_school')
-                ->where('students.id_school', '=', Auth::user()->id_school)
-                ->get();
+            $students = Auth::user()->students;
         }
-
 
 
         return view('school.student-overview', [
