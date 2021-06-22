@@ -53,17 +53,10 @@
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            <label for="toggle" class="flex items-center cursor-pointer">
-
-                                                <!-- Toggle -->
-                                                <div class="relative">
-                                                    <!-- Input -->
-                                                    <input id="toggle" type="checkbox" class="sr-only"/>
-                                                    <!-- Line -->
-                                                    <div class="w-10 h-4 bg-gray-400 rounded-full shadow-inner"></div>
-                                                    <!-- Dot -->
-                                                    <div class="dot absolute w-6 h-6 bg-white rounded-full shadow -left-1 -top-1 transition"></div>
-                                                </div>
+                                            <!-- Rounded switch -->
+                                            <label class="switch">
+                                                <input type="checkbox">
+                                                <span class="slider round"></span>
                                             </label>
                                         </td>
                                     </tr>

@@ -19,7 +19,6 @@
 
                 <!-- SportService -->
                 @if(auth()->user()->is_admin == 1)
-				
 					 <div class="hidden sm:flex sm:items-center sm:ml-6">
 						<x-jet-dropdown align="right" width="48">
 							<x-slot name="trigger">
@@ -46,17 +45,17 @@
 								<x-jet-dropdown-link href="{{ route('add-providers') }}" :active="request()->routeIs('add-providers')">
 									{{ __('Aanbieders invoeren') }}
 								</x-jet-dropdown-link>
-								
+
 								<x-jet-dropdown-link href="{{ route('add-schools') }}" :active="request()->routeIs('add-schools')">
 									{{ __('Scholen aanmaken') }}
 								</x-jet-dropdown-link>
-								
+
 								<x-jet-dropdown-link href="{{ route('add-teachers') }}" :active="request()->routeIs('add-teachers')">
 									{{ __('Leraren invoeren') }}
 								</x-jet-dropdown-link>
-								
-								<x-jet-dropdown-link href="{{ route('add-teachers') }}" :active="request()->routeIs('add-teachers')">
-									{{ __('Activiteiten invoeren') }}
+
+								<x-jet-dropdown-link href="{{ route('enter-activity') }}" :active="request()->routeIs('enter-activity')">
+									{{ __('Activiteiten aanbod invoeren') }}
 								</x-jet-dropdown-link>
 
 							</x-slot>
@@ -87,7 +86,7 @@
                 <!-- School -->
                 @if(auth()->user()->is_admin == 0 || auth()->user()->is_admin == 1)
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-jet-nav-link href="{{ route('add-students') }}" :active="request()->routeIs('add-students')">
+                        <x-jet-nav-link href="{{ route('students') }}" :active="request()->routeIs('students')">
                             {{ __('Leerlingen invoeren') }}
                         </x-jet-nav-link>
                     </div>

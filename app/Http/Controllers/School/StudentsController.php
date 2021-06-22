@@ -7,12 +7,12 @@ use App\Models\School;
 use App\Models\Student;
 use Illuminate\Http\Request;
 
-class AddStudentsController extends Controller {
+class StudentsController extends Controller {
 
     public function index() {
         $schools = School::select('school_id', 'name')->get();
 
-        return view('school.add-students', [
+        return view('school.student.add-students', [
             'school' => $schools
         ]);
     }

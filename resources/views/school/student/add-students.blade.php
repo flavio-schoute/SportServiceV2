@@ -9,9 +9,10 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
             <div class="w-full sm:max-w-md mb-12 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+
                 <x-jet-validation-errors class="mb-4"/>
 
-                <form method="POST" action="{{ route('add-students') }}">
+                <form method="POST" action="{{ route('students') }}">
                     @csrf
 
                     <div>

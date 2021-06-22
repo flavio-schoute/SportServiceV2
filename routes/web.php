@@ -2,8 +2,9 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\School\ActivityOverviewController;
-use App\Http\Controllers\School\AddStudentsController;
+use App\Http\Controllers\School\StudentsController;
 use App\Http\Controllers\School\StudentOverviewController;
+use App\Http\Controllers\SportService\ActivityController;
 use App\Http\Controllers\SportService\UserOverviewController;
 use App\Http\Controllers\SportService\AddSchoolController;
 use App\Http\Controllers\SportService\AddProviderController;
@@ -27,8 +28,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [DashboardCon
 // School endpoints
 Route::group(['middleware' => 'auth'], function() {
     // To add student to the database / application
-    Route::get('/add-students', [AddStudentsController::class, 'index'])->name('add-students');
-    Route::post('/add-students', [AddStudentsController::class, 'store']);
+    Route::get('/students', [StudentsController::class, 'index'])->name('students');
+    Route::post('/students', [StudentsController::class, 'store']);
 
     // All endpoints related to activities
     Route::get('/activity-overview', [ActivityOverviewController::class, 'index'])->name('activity-overview');
@@ -50,12 +51,15 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::get('/add-providers', [AddProviderController::class, 'index'])->name('add-providers');
 	Route::post('/add-providers', [AddProviderController::class, 'store']);
 
-
 	// To add Teachers for Schools
 	Route::get('/add-teachers', [AddTeacherController::class, 'index'])->name('add-teachers');
 	Route::post('/add-teachers', [AddTeacherController::class, 'store']);
-	
-	    // All endpoints related to User overview
+
+	// To add activity to the database
+    Route::get('/enter-activity', [ActivityController::class, 'index'])->name('enter-activity');
+    Route::post('/enter-activity', [ActivityController::class, 'store']);
+
+    // All endpoints related to User overview
     Route::get('/user-overview', [UserOverviewController::class, 'index'])->name('user-overview');
     Route::delete('/user-overview/{user}', [UserOverviewController::class, 'destroy'])->name('user-overview.destroy');
     Route::put('/user-overview/{user}', [UserOverviewController::class, 'update'])->name('user-overview.update');
