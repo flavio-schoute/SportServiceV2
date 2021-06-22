@@ -29,7 +29,8 @@ class User extends Authenticatable
         'password',
         'is_admin',
 		'is_active',
-        'id_teacher'
+        'id_teacher',
+        'id_school'
     ];
 
     /**

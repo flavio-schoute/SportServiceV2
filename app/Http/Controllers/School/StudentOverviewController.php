@@ -6,16 +6,30 @@ use App\Http\Controllers\Controller;
 use App\Models\School;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class StudentOverviewController extends Controller {
 
     public function index() {
-        $students = DB::table('students')
-            ->select('students.*', 'school.name')
-            ->leftJoin('school', 'students.id_school', '=', 'school.school_id')
-            ->orderBy('students.id_school')
-            ->get();
+        // Bad solution, need to find better way
+
+        if (Auth::user()->is_admin == 1) {
+            $students = DB::table('students')
+                ->select('students.*', 'school.name')
+                ->leftJoin('school', 'students.id_school', '=', 'school.school_id')
+                ->orderBy('students.id_school')
+                ->get();
+        } else {
+            $students = DB::table('students')
+                ->select('students.*', 'school.name')
+                ->leftJoin('school', 'students.id_school', '=', 'school.school_id')
+                ->orderBy('students.id_school')
+                ->where('students.id_school', '=', Auth::user()->id_school)
+                ->get();
+        }
+
+
 
         return view('school.student-overview', [
             'students' => $students,

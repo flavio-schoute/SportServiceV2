@@ -54,7 +54,8 @@ class AddTeacherController extends Controller {
             'password' => Hash::make($request->password),
             'is_admin' => false,
             'is_active' => true,
-            'id_teacher' => $id
+            'id_teacher' => $id,
+            'id_school' => $request->school
         ]);
 
 		// Redirect

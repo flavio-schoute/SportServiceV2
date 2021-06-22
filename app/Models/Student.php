@@ -58,6 +58,4 @@ class Student extends Model
         'group' => 'integer',
         'date_of_birth' => 'date',
     ];
-
-
 }
