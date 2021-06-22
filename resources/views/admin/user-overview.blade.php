@@ -55,7 +55,7 @@
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                             <!-- Rounded switch -->
                                             <label class="switch">
-                                                <input type="checkbox">
+                                                <input data-id="{{$user->teacher_id}}" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="inActive"/>
                                                 <span class="slider round"></span>
                                             </label>
                                         </td>
@@ -63,6 +63,25 @@
                                 @endforeach
                                 </tbody>
                             </table>
+							
+							 <script>
+								  // $(function() {
+									// $('.toggle-class').change(function() {
+										// var status = $(this).prop('checked') == true ? 1 : 0; 
+										// var teacher_id = $(this).data('teacher_id'); 
+										 
+										// $.ajax({
+											// type: "GET",
+											// dataType: "json",
+											// url: '/changeStatus',
+											// data: {'status': status, 'teacher_id': teacher_id},
+											// success: function(data){
+											  // console.log(data.success)
+											// }
+										// });
+									// })
+								  // })
+							 </script>
 
                             <!-- School -->
                             <table class="min-w-full divide-y divide-gray-200 w-full">
