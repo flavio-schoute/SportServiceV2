@@ -32,7 +32,6 @@
 										</svg>
 									</div>
 								</button>
-
 							</x-slot>
 
 							<x-slot name="content">

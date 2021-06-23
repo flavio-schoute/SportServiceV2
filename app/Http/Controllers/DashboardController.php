@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-//use Carbon\Carbon;
+use Carbon\Carbon;
 
 class DashboardController extends Controller {
 

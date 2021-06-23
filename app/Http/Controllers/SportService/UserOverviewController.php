@@ -37,15 +37,4 @@ class UserOverviewController extends Controller {
             'users' => $users,
         ]);
     }
-
-	    public function changeStatus(Request $request)
-    {
-        $teacher = User::find($request->id_teacher);
-
-		dd ($teacher);
-        $teacher->status = $request->is_active;
-        $teacher->save();
-
-        return response()->json(['success'=>'Status change successfully.']);
-    }
 }
