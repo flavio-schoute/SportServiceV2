@@ -61,7 +61,6 @@
                                                 <livewire:toggle-button
                                                     :model="$injectedUser"
                                                     field="is_active"
-                                                    key="$user->id_teacher"
                                                     myKey="{{ $user->id }}"
                                                 />
                                             </div>

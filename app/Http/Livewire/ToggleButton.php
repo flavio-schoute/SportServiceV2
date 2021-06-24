@@ -23,7 +23,7 @@ class ToggleButton extends Component
 //        dd($this->model->find($this->myKey)->getAttributes());
 
 
-        $theAttribute = $this->model->find($this->myKey)->getAttribute('is_active');
+        $theAttribute = $this->model->find($this->myKey)->getAttribute($this->field);
 
         $this->isActive = (bool) $theAttribute;
 //        dd($this->isActive, $this->model->getAttribute($this->field), $this->field, $this->model->getAttributes());
