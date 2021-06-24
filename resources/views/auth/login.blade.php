@@ -6,9 +6,20 @@
 
         <x-jet-validation-errors class="mb-4" />
 
+        {{--    Need to remove, figure out what this is?    --}}
         @if (session('status'))
             <div class="mb-4 font-medium text-sm text-green-600">
                 {{ session('status') }}
+            </div>
+        @endif
+
+        @if (session('failed_account_inactive'))
+            <div class="mb-4">
+                <div class="font-medium text-red-600">Whoops! Er ging iets mis.</div>
+
+                <ul class="mt-3 list-inside text-sm text-red-600">
+                    <li>{{ session('failed_account_inactive') }}</li>
+                </ul>
             </div>
         @endif
 
