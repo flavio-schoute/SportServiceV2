@@ -22,8 +22,7 @@
                     <div class="hidden sm:flex sm:items-center sm:ml-6">
                         <x-jet-dropdown align="right" width="48">
                             <x-slot name="trigger">
-                                <button
-                                    class="trigger-btn">
+                                <button class="trigger-btn">
                                     <div>Invoer opties</div>
 
                                     <div class="ml-1">
@@ -39,7 +38,6 @@
 
 
                             <x-slot name="content">
-                                <!-- User Management -->
                                 <div class="block px-4 py-2 text-xs text-gray-400">
                                     {{ __('Opties') }}
                                 </div>
