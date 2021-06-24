@@ -10,13 +10,23 @@ class ToggleButton extends Component
 {
     public Model $model;
     public string $field;
-
     public bool $isActive;
 
-    public string $userActiveBoolean;
+    public int $myKey;
 
     public function mount() {
-        $this->isActive = (bool) $this->model->getAttribute($this->field);
+        // Problem is this:  $this->model->getAttribute($this->field);
+
+//        dd($this->model->getOriginal(), $this->model->getMutatedAttributes());
+
+//        dd(User::find('34')->getAttribute('is_active'));
+//        dd($this->model->find($this->myKey)->getAttributes());
+
+
+        $theAttribute = $this->model->find($this->myKey)->getAttribute('is_active');
+
+        $this->isActive = (bool) $theAttribute;
+//        dd($this->isActive, $this->model->getAttribute($this->field), $this->field, $this->model->getAttributes());
     }
 
     public function render()
@@ -25,6 +35,7 @@ class ToggleButton extends Component
     }
 
     public function updating($field, $value) {
-        $this->model->setAttribute($this->field, $value)->save();
+        // Hier ook de find gebruiken
+        $this->model->find($this->myKey)->setAttribute($this->field, $value)->save();
     }
 }

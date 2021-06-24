@@ -56,11 +56,13 @@
 
 
                                             @inject('injectedUser', 'App\Models\User')
+
                                             <div>
                                                 <livewire:toggle-button
                                                     :model="$injectedUser"
                                                     field="is_active"
-                                                    key="{{ $user->teacher_id }}"
+                                                    key="$user->id_teacher"
+                                                    myKey="{{ $user->id }}"
                                                 />
                                             </div>
                                         </td>
