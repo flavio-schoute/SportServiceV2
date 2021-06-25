@@ -17,8 +17,12 @@
                         Welkom {{ Auth::user()->name }}
                     </div>
 
-                    <div class="mt-6 text-gray-500">
+                    <div class="mt-4 text-gray-500">
                         Maak een keuze het navigatie menu boven in de website.
+                    </div>
+
+                    <div class="mt-3 text-gray-500">
+                        Zet de registratie pagina uit:
                     </div>
                 </div>
             </div>
