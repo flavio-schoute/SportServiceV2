@@ -18,6 +18,15 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
 
+    protected $primaryKey = 'id';
+
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -27,7 +36,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'is_admin'
+        'is_admin',
+        'is_active',
+        'id_teacher',
+        'id_school'
     ];
 
     /**
@@ -59,4 +71,11 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function students()
+    {
+        return $this->hasMany(Student::class, 'id_school', 'id_school')
+            ->orderBy('id_school', 'desc')
+            ->with('school');
+    }
 }
