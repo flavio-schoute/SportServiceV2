@@ -29,12 +29,12 @@ class UserOverviewController extends Controller {
         ]);
     }
 	
-	    public function destroy(User $user) {
+	    public function destroy(School $school) {
         // Select and delete the user from the database
-        $user->delete();
+        $school->delete();
 
         // Redirect to the user overview page and send a success message
-        return redirect()->route('user-overview')->with('success', 'Account verwijderd!');
+        return redirect()->route('user-overview')->with('success', 'School verwijderd!');
     }
 	
 
