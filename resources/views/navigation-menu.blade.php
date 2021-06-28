@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-jet-application-mark class="block h-9 w-auto" />
+                        <x-jet-application-mark class="block h-9 w-auto"/>
                     </a>
                 </div>
 
@@ -35,7 +35,6 @@
                                     </div>
                                 </button>
                             </x-slot>
-
 
                             <x-slot name="content">
                                 <div class="block px-4 py-2 text-xs text-gray-400">
