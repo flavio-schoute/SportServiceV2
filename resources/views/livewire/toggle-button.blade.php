@@ -5,7 +5,7 @@
 
         <div class="italic mt-1"
              x-data="{show: false}"
-             x-show="show"
+             x-show.transition.opacity.out.duration.1500ms="show"
              x-init="@this.on('saved', () => { show = true;
                 setTimeout(() => {
                     show = false;
