@@ -23,6 +23,19 @@ class UserOverviewController extends Controller {
 
         return view('admin.user-overview', [
             'users' => $users,
+			'schools' => School::select('*')->getQuery()
+			->orderBy('school.settlement_location', 'ASC')
+			->get()
         ]);
     }
+	
+	    public function destroy(User $user) {
+        // Select and delete the user from the database
+        $user->delete();
+
+        // Redirect to the user overview page and send a success message
+        return redirect()->route('user-overview')->with('success', 'Account verwijderd!');
+    }
+	
+
 }
