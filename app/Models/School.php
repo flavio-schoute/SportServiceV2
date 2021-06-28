@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class School extends Model
 {
     use HasFactory;
-	protected $primaryKey = 'school_id';
 
     /**
      * Indicates if the model should be timestamped.

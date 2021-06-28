@@ -5,7 +5,7 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {
-        "php": "7.4|8.0.2",
+        "php": "^7.3|^8.0",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
@@ -13,8 +13,7 @@
         "laravel/jetstream": "^2.3",
         "laravel/sanctum": "^2.6",
         "laravel/tinker": "^2.5",
-        "livewire/livewire": "^2.5.1",
-        "ext-pdo": "*"
+        "livewire/livewire": "^2.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.6",

@@ -6,19 +6,16 @@ use App\Http\Controllers\Controller;
 use App\Models\School;
 use App\Models\Student;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class StudentOverviewController extends Controller {
 
     public function index() {
-        // Bad solution, need to find better way
-        if (Auth::user()->is_admin == 1) {
-            $students = Student::with('school')->orderBy('id_school', 'desc')->get();
-        } else {
-            $students = Auth::user()->students;
-        }
-
+        $students = DB::table('students')
+            ->select('students.*', 'school.name')
+            ->leftJoin('school', 'students.id_school', '=', 'school.school_id')
+            ->orderBy('students.id_school')
+            ->get();
 
         return view('school.student-overview', [
             'students' => $students,

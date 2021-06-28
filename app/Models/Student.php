@@ -59,8 +59,5 @@ class Student extends Model
         'date_of_birth' => 'date',
     ];
 
-    public function school(): \Illuminate\Database\Eloquent\Relations\BelongsTo
-    {
-        return $this->belongsTo(School::class, 'id_school', 'school_id');
-    }
+
 }
