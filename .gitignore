@@ -14,3 +14,4 @@ yarn-error.log
 /.idea
 /.vscode
 .env1.example
+storage/debugbar/*
