@@ -12,6 +12,16 @@
             </div>
         @endif
 
+        @if (session('failed_account_inactive'))
+            <div class="mb-4">
+                <div class="font-medium text-red-600">Whoops! Er ging iets mis.</div>
+
+                <ul class="mt-3 list-inside text-sm text-red-600">
+                    <li>{{ session('failed_account_inactive') }}</li>
+                </ul>
+            </div>
+        @endif
+
         <form method="POST" action="{{ route('login') }}">
             @csrf
 

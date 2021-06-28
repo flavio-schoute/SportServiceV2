@@ -23,7 +23,7 @@ class ToggleButton extends Component
     }
 
     public function updating($field, $value) {
-        // Hier ook de find gebruiken
         $this->model->find($this->myKey)->setAttribute($this->field, $value)->save();
+        $this->emit('saved');
     }
 }
