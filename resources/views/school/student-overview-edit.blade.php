@@ -35,7 +35,7 @@
                     <x-jet-label for="group" value="{{ __('Groep') }}"/>
                     <select name="group" value="{{ $student->group }}" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full">
                         @for($i = 4; $i < 9; $i++)
-                            <option value="{{$i}}">Groep {{$i}}</option>
+                            <option value="{{$i}}" {{$i == $student->group ? 'selected' : ''}}>Groep {{$i}}</option>
                         @endfor
                     </select>
                 </div>

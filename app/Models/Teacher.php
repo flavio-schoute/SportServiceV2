@@ -10,24 +10,31 @@ class Teacher extends Model
     use HasFactory;
 
     /**
+     * The primary key for the model.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'teacher_id';
+
+    /**
      * Indicates if the model should be timestamped.
      *
      * @var bool
      */
-	public $timestamps = false;
+    public $timestamps = false;
 
-	 /**
+    /**
      * The table associated with the model.
      *
      * @var string
      */
     protected $table = 'teacher';
 
-	protected $fillable = [
-		'id_school',
+    protected $fillable = [
+        'id_school',
         'first_name',
-		'last_name',
-		'email',
-		'phone_number'
+        'last_name',
+        'email',
+        'phone_number'
     ];
 }
