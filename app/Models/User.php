@@ -37,7 +37,7 @@ class User extends Authenticatable
         'email',
         'password',
         'is_admin',
-		'is_active',
+        'is_active',
         'id_teacher',
         'id_school'
     ];
@@ -78,6 +78,4 @@ class User extends Authenticatable
             ->orderBy('id_school', 'desc')
             ->with('school');
     }
-
-
 }

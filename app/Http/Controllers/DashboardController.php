@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
-use Illuminate\Support\Facades\DB;
 use Laravel\Fortify\Features;
 
 class DashboardController extends Controller {
 
     public function index() {
+       // $this->disable();
+
         Carbon::setLocale('nl');
 
         $greetingMessage = "Goede avond!";
@@ -33,22 +34,12 @@ class DashboardController extends Controller {
         ]);
     }
 
-    public function store() {
-        $data = $this->getOptions('registerRoute');
-        foreach($data as $item) {
-            if ($item->value == 1) {
-                dd('value 1');
-            } else {
-                dd('niet waar');
-            }
-        }
-    }
-
-    // Maybe make this a static function in class somewhere
-    private function getOptions($key)
+    public function disable(): bool
     {
-        $data = DB::table('options')->select('key', 'value')->where('key', '=', $key)->get();
-        return $data;
+//        $test = config('fortify.features.0', []);
+//        unset($test);
+//        $test2 = config('fortify.features', []);
+//        dd($test2);
     }
 
 }
