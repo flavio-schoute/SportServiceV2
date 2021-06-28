@@ -53,11 +53,70 @@
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            <!-- Rounded switch -->
-                                            <label class="switch">
-                                                <input type="checkbox">
-                                                <span class="slider round"></span>
-                                            </label>
+
+                                            @inject('injectedUser', 'App\Models\User')
+
+                                            <div>
+                                                <livewire:toggle-button
+                                                    :model="$injectedUser"
+                                                    field="is_active"
+                                                    myKey="{{ $user->id }}"
+                                                />
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+
+                            <!-- School -->
+                            <table class="min-w-full divide-y divide-gray-200 w-full mb-4">
+                                <thead>
+                                <tr>
+                                    <th scope="col" width="50" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        School ID
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        School naam
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        School email
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        School locatie
+                                    </th>
+
+                                    <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Actie
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200">
+                                @foreach ($schools as $school)
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                            {{ $school->school_id}}
+                                        </td>
+
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                            {{ $school->name }}
+                                        </td>
+
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                            {{ $school->email }}
+                                        </td>
+
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                            {{ $school->settlement_location }}
+                                        </td>
+
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+
+                                            <form class="inline-block" action="{{ route('user-overview.destroy', $school->school_id) }}" method="POST" onsubmit="return confirm('Weet je zeker dat je de school wil verwijderen?');">
+                                                @csrf
+                                                @method('DELETE')
+                                                <input type="submit" class="text-red-600 hover:text-red-900 mb-2 mr-2" value="Verwijderen">
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach
