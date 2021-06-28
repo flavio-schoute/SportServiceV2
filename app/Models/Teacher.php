@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Teacher extends Model
 {
@@ -15,8 +14,7 @@ class Teacher extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'student_id';
-
+    protected $primaryKey = 'teacher_id';
 
     /**
      * Indicates if the model should be timestamped.
@@ -30,38 +28,13 @@ class Teacher extends Model
      *
      * @var string
      */
-    protected $table = 'students';
+    protected $table = 'teacher';
 
     protected $fillable = [
         'id_school',
         'first_name',
         'last_name',
-        'group',
-        'date_of_birth',
+        'email',
+        'phone_number'
     ];
-
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'student_id',
-    ];
-
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'id_school' => 'integer',
-        'group' => 'integer',
-        'date_of_birth' => 'date',
-    ];
-
-    public function school(): BelongsTo
-    {
-        return $this->belongsTo(School::class, 'id_school', 'school_id');
-    }
 }

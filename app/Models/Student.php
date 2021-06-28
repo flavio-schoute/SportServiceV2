@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Student extends Model
 {
@@ -59,7 +60,8 @@ class Student extends Model
         'date_of_birth' => 'date',
     ];
 
-
-
-
+    public function school(): BelongsTo
+    {
+        return $this->belongsTo(School::class, 'id_school', 'school_id');
+    }
 }

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class ActivityOffer extends Model {
+
     use HasFactory;
 
     /**
@@ -14,7 +15,6 @@ class ActivityOffer extends Model {
      * @var string
      */
     protected $primaryKey = 'student_id';
-
 
     /**
      * Indicates if the model should be timestamped.
@@ -47,5 +47,4 @@ class ActivityOffer extends Model {
     protected $casts = [
         'acitivity_year' => 'date',
     ];
-
 }
