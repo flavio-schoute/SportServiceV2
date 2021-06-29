@@ -5,6 +5,7 @@ use App\Http\Controllers\School\ActivityOverviewController;
 use App\Http\Controllers\School\StudentsController;
 use App\Http\Controllers\School\StudentOverviewController;
 use App\Http\Controllers\SportService\ActivityController;
+use App\Http\Controllers\SportService\LinkSchoolActivityController;
 use App\Http\Controllers\SportService\UserOverviewController;
 use App\Http\Controllers\SportService\AddSchoolController;
 use App\Http\Controllers\SportService\AddProviderController;
@@ -62,6 +63,9 @@ Route::group(['middleware' => 'auth'], function() {
     // All endpoints related to User overview
     Route::get('/user-overview', [UserOverviewController::class, 'index'])->name('user-overview');
     Route::delete('/user-overview/{school}', [UserOverviewController::class, 'destroy'])->name('user-overview.destroy');
+
+    // All endpoints to link activity to a school
+    Route::get('/linkschool', [LinkSchoolActivityController::class, 'index'])->name('link-school-activity');
 });
 
 require_once __DIR__ . '/jetstream.php';

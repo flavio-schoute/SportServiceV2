@@ -64,7 +64,7 @@
 					</div>
 
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-jet-nav-link>
+                        <x-jet-nav-link href="{{ route('link-school-activity') }}" :active="request()->routeIs('link-school-activity')">
                             {{ __('Deelname plek scholen') }}
                         </x-jet-nav-link>
                     </div>
