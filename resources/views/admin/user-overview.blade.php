@@ -31,6 +31,9 @@
                                         <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             Account status
                                         </th>
+										<th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Actie
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200">
@@ -64,6 +67,18 @@
                                                 />
                                             </div>
                                         </td>
+										@foreach($teachers as $teacher)
+										@endforeach
+										<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+											
+                                            <form class="inline-block" action="{{ route('user-overview.destroyTeacher', $teacher->teacher_id) }}" method="POST" onsubmit="return confirm('Weet je zeker dat je deze leraar wil verwijderen?');">
+                                                @csrf
+                                                @method('DELETE')
+                                                <input type="submit" class="text-red-600 hover:text-red-900 mb-2 mr-2" value="Verwijderen">
+                                            </form>
+											
+                                        </td>
+				
                                     </tr>
                                 @endforeach
                                 </tbody>

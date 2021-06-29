@@ -63,7 +63,7 @@ Route::group(['middleware' => 'auth'], function() {
     // All endpoints related to User overview
     Route::get('/user-overview', [UserOverviewController::class, 'index'])->name('user-overview');
     Route::delete('/user-overview/{school}', [UserOverviewController::class, 'destroy'])->name('user-overview.destroy');
-
+	Route::delete('/user-overview/{teacher}', [UserOverviewController::class, 'destroyTeacher'])->name('user-overview.destroyTeacher');
     // All endpoints to link activity to a school
     Route::get('/linkschool', [LinkSchoolActivityController::class, 'index'])->name('link-school-activity');
 });

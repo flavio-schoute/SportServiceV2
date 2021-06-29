@@ -4,6 +4,7 @@ namespace App\Http\Controllers\SportService;
 
 use App\Http\Controllers\Controller;
 use App\Models\School;
+use App\Models\Teacher;
 use Illuminate\Support\Facades\DB;
 
 class UserOverviewController extends Controller {
@@ -21,15 +22,25 @@ class UserOverviewController extends Controller {
             'users' => $users,
             'schools' => School::select('*')->getQuery()
                 ->orderBy('school.settlement_location', 'ASC')
-                ->get()
+                ->get(),
+			'teachers' => Teacher::select('*')
+				->get()
         ]);
     }
 
     public function destroy(School $school) {
-        // Select and delete the user from the database
+        // Select and delete the school from the database
         $school->delete();
 
-        // Redirect to the user overview page and send a success message
+        // Redirect to the school overview page and send a success message
         return redirect()->route('user-overview')->with('success', 'School verwijderd!');
+    }
+	
+	public function destroyTeacher(Teacher $teacher) {
+        // Select and delete the user from the database
+        $teacher->delete();
+
+        // Redirect to the user overview page and send a success message
+        return redirect()->route('user-overview')->with('success', 'Leraar verwijderd!');
     }
 }
