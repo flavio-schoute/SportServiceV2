@@ -38,6 +38,6 @@ class StudentsController extends Controller {
         ]);
 
         // Redirect
-        return redirect()->route('dashboard');
+        return redirect()->route('students');
     }
 }
