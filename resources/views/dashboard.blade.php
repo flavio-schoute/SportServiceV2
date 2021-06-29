@@ -21,8 +21,18 @@
                         Maak een keuze het navigatie menu boven in de website.
                     </div>
 
-                    <div class="mt-3 text-gray-500">
+                    <div class="mt-3 text-gray-500 flex items-center">
                         Zet de registratie pagina uit:
+
+                        @inject('injectOptions', 'App\Models\Options')
+
+                        <div class="ml-2">
+                            <livewire:toggle-button
+                                :model="$injectOptions"
+                                field="value"
+                                myKey="1"
+                            />
+                        </div>
                     </div>
                 </div>
             </div>

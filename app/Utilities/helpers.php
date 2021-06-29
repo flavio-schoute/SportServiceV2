@@ -1,10 +1,11 @@
 <?php
 
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
 if (!function_exists('isOptionDisabled')) {
 
-    function isOptionDisabled($key) {
+    function isOptionEnabled($key): bool {
         $data = getOptions($key);
         foreach($data as $item) {
             if ($item->value == 1) {
@@ -19,8 +20,7 @@ if (!function_exists('isOptionDisabled')) {
 if (!function_exists('getOptions')) {
 
     // Document todo -> collection return??
-    function getOptions($key)
-    {
+    function getOptions($key): Collection {
         return DB::table('options')->select('key', 'value')->where('key', '=', $key)->get();
     }
 }
