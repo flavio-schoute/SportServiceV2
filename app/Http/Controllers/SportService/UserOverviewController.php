@@ -22,9 +22,7 @@ class UserOverviewController extends Controller {
             'users' => $users,
             'schools' => School::select('*')->getQuery()
                 ->orderBy('school.settlement_location', 'ASC')
-                ->get(),
-			'teachers' => Teacher::select('*')
-				->get()
+                ->get()
         ]);
     }
 
@@ -35,7 +33,7 @@ class UserOverviewController extends Controller {
         // Redirect to the school overview page and send a success message
         return redirect()->route('user-overview')->with('success', 'School verwijderd!');
     }
-	
+
 	public function destroyTeacher(Teacher $teacher) {
         // Select and delete the user from the database
         $teacher->delete();
