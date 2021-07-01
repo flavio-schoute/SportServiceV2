@@ -20,6 +20,8 @@
                     <div class="mt-4 text-gray-500">
                         Maak een keuze het navigatie menu boven in de website.
                     </div>
+					
+					 @if(auth()->user()->is_admin == 1)
 
                     <div class="mt-3 text-gray-500 flex items-center">
                         Zet de registratie pagina uit:
@@ -34,6 +36,7 @@
                             />
                         </div>
                     </div>
+					@endif
                 </div>
             </div>
 
