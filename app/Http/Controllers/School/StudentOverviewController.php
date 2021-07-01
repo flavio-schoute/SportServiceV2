@@ -18,6 +18,7 @@ class StudentOverviewController extends Controller {
         } else {
             $students = Auth::user()->students;
         }
+	
 
         return view('school.student-overview', [
             'students' => $students,
