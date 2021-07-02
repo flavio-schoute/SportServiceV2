@@ -12,6 +12,8 @@
 
                 <x-jet-validation-errors class="mb-4"/>
 
+                <h1>DIT IS NOG IN DE MAAK, DIT IS NOG NIET TE TESTEN</h1>
+
                 @if (session('success'))
                     <div class="flex items-center mb-5 font-medium py-1 px-2 bg-white rounded-md text-green-700 bg-green-100 border border-green-300 ">
                         <div slot="avatar">
@@ -30,15 +32,8 @@
                 <form method="POST" action="{{ route('link-school-activity') }}">
                     @csrf
 
-                    <div>
-                        <x-jet-label for="provider" value="{{ __('Wie is de aanbieder:') }}"/>
-                        <select name="provider" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full">
-{{--                            @foreach($providers as $provider)--}}
-{{--                                <option value="{{$provider->provider_id}}">{{$provider->name}}</option>--}}
-{{--                            @endforeach--}}
-                        </select>
-                    </div>
 
+                    <!-- School -->
                     <div class="mt-4">
                         <x-jet-label for="activity" value="{{ __('Wat is de activiteit:') }}"/>
                         <select name="activity" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full">
@@ -48,20 +43,10 @@
                         </select>
                     </div>
 
-                    <div class="mt-4">
-                        <x-jet-label for="activity_location" value="{{ __('Waar vind de activiteit plaats:') }}"/>
-                        <select name="activity_location" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full">
-{{--                            @foreach($locations as $location)--}}
-{{--                                <option value="{{$location->location_id}}">{{$location->location}}</option>--}}
-{{--                            @endforeach--}}
-                        </select>
-                    </div>
+                    <!-- ID chort -->
 
-                    <div class="mt-4">
-                        <x-jet-label for="unique_activity_name" value="{{ __('Unieke activiteiten naam:') }}"/>
-                        <x-jet-input id="unique_activity_name" class="block mt-1 w-full" type="text" name="unique_activity_name"
-                                     :value="old('unique_activity_name')" required/>
-                    </div>
+
+                    <!-- Select uniek naam -->
 
                     <div class="mt-4">
                         <x-jet-label for="total_participants" value="{{ __('Maximaal aantal deelnemmers:') }}"/>
@@ -72,16 +57,9 @@
                         </select>
                     </div>
 
-                    <div class="mt-4">
-                        <x-jet-label for="activity_take_place" value="{{ __('Wanneer vind de activiteit plaats:') }}"/>
-                        <x-jet-input id="activity_take_place" class="block mt-1 w-full" type="date" name="activity_take_place"
-                                     :value="old('activity_take_place')" required/>
-                    </div>
-
-
                     <div class="flex items-center justify-center mt-4">
                         <x-jet-button>
-                            {{ __('Activiteit invoeren') }}
+                            {{ __('Voeg de activiteit toe aan school') }}
                         </x-jet-button>
                     </div>
                 </form>
