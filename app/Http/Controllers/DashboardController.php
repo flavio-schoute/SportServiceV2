@@ -3,13 +3,10 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
-use Laravel\Fortify\Features;
 
 class DashboardController extends Controller {
 
     public function index() {
-       // $this->disable();
-
         Carbon::setLocale('nl');
 
         $greetingMessage = "Goede avond!";
@@ -33,13 +30,4 @@ class DashboardController extends Controller {
             'today' => Carbon::today("Europe/Amsterdam")->format('l d M Y'),
         ]);
     }
-
-    public function disable(): bool
-    {
-//        $test = config('fortify.features.0', []);
-//        unset($test);
-//        $test2 = config('fortify.features', []);
-//        dd($test2);
-    }
-
 }
