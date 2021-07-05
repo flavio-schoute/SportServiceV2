@@ -3,11 +3,18 @@
 namespace App\Http\Controllers\SportService;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Models\School;
+use Illuminate\Support\Facades\DB;
 
 class LinkSchoolActivityController extends Controller {
 
     public function index() {
-        return view('admin.link-school-to-activity');
+        $schools = School::select('school_id', 'name')->get();
+        $cohorts = DB::table('cohorts')->select('cohorts.cohort_id', 'cohorts.name', 'activity_locations.location')
+            ->leftJoin('activity_locations', 'cohorts.id_activity_locations', '=', 'activity_locations.location_id')
+            ->get();
+        
+
+        return view('admin.link-school-to-activity', compact('schools', 'cohorts'));
     }
 }
