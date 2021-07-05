@@ -84,7 +84,7 @@
                 @endif
 
                 <!-- School -->
-                @if(auth()->user()->is_admin == 0 || auth()->user()->is_admin == 1)
+                @auth
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-jet-nav-link href="{{ route('students') }}" :active="request()->routeIs('students')">
                             {{ __('Leerlingen invoeren') }}
@@ -102,7 +102,7 @@
                             {{ __('Leerling overzicht') }}
                         </x-jet-nav-link>
                     </div>
-                @endif
+                @endauth
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">

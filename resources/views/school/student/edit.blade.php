@@ -12,27 +12,29 @@
                 @csrf
                 @method('PUT')
 
-                <div>
-                    <x-jet-label for="school" value="{{ __('School') }}"/>
-                    <select name="school" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full">
-                        @foreach($schools as $school)
-                            <option value="{{$school->school_id}}">{{$school->name}}</option>
-                        @endforeach
-                    </select>
-                </div>
+                @if(auth()->user()->is_admin == 1)
+                    <div>
+                        <x-jet-label for="school" value="{{ __('School:') }}"/>
+                        <select name="school" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full">
+                            @foreach($schools as $school)
+                                <option value="{{$school->school_id}}">{{$school->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                @endif
 
                 <div class="mt-4">
-                    <x-jet-label for="first_name" value="{{ __('Naam') }}"/>
+                    <x-jet-label for="first_name" value="{{ __('Naam:') }}"/>
                     <x-jet-input id="first_name" class="block mt-1 w-full" type="text" name="first_name" :value="$student->first_name" required/>
                 </div>
 
                 <div class="mt-4">
-                    <x-jet-label for="last_name" value="{{ __('Achternaam') }}"/>
+                    <x-jet-label for="last_name" value="{{ __('Achternaam:') }}"/>
                     <x-jet-input id="last_name" class="block mt-1 w-full" type="text" name="last_name" :value="$student->last_name" required/>
                 </div>
 
                 <div class="mt-4">
-                    <x-jet-label for="group" value="{{ __('Groep') }}"/>
+                    <x-jet-label for="group" value="{{ __('Groep:') }}"/>
                     <select name="group" value="{{ $student->group }}" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full">
                         @for($i = 4; $i < 9; $i++)
                             <option value="{{$i}}" {{$i == $student->group ? 'selected' : ''}}>Groep {{$i}}</option>
