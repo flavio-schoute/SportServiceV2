@@ -63,7 +63,7 @@
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            {{ $student->date_of_birth->format('d-m-Y') }}
+                                            {{ $student->date_of_birth == null ? '' : $student->date_of_birth->format('d-m-Y') }}
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">

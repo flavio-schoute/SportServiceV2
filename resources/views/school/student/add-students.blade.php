@@ -31,13 +31,13 @@
                     </div>
 
                     <div class="mt-4">
-                        <x-jet-label for="last_name" value="{{ __('Achternaam') }}"/>
+                        <x-jet-label for="last_name" value="{{ __('Achternaam (Optioneel)') }}"/>
                         <x-jet-input id="last_name" class="block mt-1 w-full" type="text" name="last_name"
-                                     :value="old('last_name')" required/>
+                                     :value="old('last_name')"/>
                     </div>
 
                     <div class="mt-4">
-                        <x-jet-label for="group" value="{{ __('Groep') }}"/>
+                        <x-jet-label for="group" value="{{ __('Groep (Optioneel)') }}"/>
                         <select name="group" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full">
                             @for($i = 4; $i < 9; $i++)
                                 <option value="{{$i}}">Groep {{$i}}</option>
@@ -46,9 +46,9 @@
                     </div>
 
                     <div class="mt-4">
-                        <x-jet-label for="birthday" value="{{ __('Geboorte datum') }}"/>
+                        <x-jet-label for="birthday" value="{{ __('Geboorte datum (Optioneel)') }}"/>
                         <x-jet-input id="birthday" class="block mt-1 w-full" type="date" name="birthday"
-                                     :value="old('birthday')" required/>
+                                     :value="old('birthday')"/>
                     </div>
 
 

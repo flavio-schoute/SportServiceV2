@@ -22,9 +22,9 @@ class StudentsController extends Controller {
         $this->validate($request, [
             'school' => 'required',
             'first_name' => 'required',
-            'last_name' => 'required',
-            'group' => 'required',
-            'birthday' => 'required|date'
+            'last_name' => 'nullable' ,
+            'group' => 'nullable',
+            'birthday' => 'nullable|date'
         ]);
 
 
@@ -32,9 +32,9 @@ class StudentsController extends Controller {
         Student::create([
             'id_school' => $request->school,
             'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
-            'group' => $request->group,
-            'date_of_birth' => $request->birthday
+            'last_name' => $request->last_name ?? null,
+            'group' => $request->group ??  null,
+            'date_of_birth' => $request->birthday ?? null
         ]);
 
         // Redirect
