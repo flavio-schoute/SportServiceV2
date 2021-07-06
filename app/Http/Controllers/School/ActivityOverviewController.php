@@ -26,7 +26,9 @@ class ActivityOverviewController extends Controller {
         // its better to use ->paginate(25); instead of ->get();
         // than you have automatic a pagination functionality in your webpage.
         // use in the blade this to get the links: {{ $activities->links() }}
-        $activities = ActivityRegistration::with('activityOffer')->get();
+        $activities = ActivityRegistration::with('activityOffer')
+            ->where('id_school', '=' , auth()->user()->id_school)
+            ->get();
 
 //        $test = School::with('sports')->get();
 //        dd($test);
