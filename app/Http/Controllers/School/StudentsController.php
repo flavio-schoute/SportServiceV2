@@ -13,7 +13,7 @@ class StudentsController extends Controller {
         $schools = School::select('school_id', 'name')->get();
 
         return view('school.student.add-students', [
-            'school' => $schools
+            'schools' => $schools
         ]);
     }
 
