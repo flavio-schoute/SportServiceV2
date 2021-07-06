@@ -86,7 +86,7 @@
                                             <form class="inline-block" action="{{ route('delete-teacher', $user->teacher_id) }}" method="POST" onsubmit="return confirm('Weet je zeker dat je deze leraar wil verwijderen?');">
                                                 @csrf
                                                 @method('DELETE')
-                                                <input type="submit" class="text-red-600 hover:text-red-900 mb-2 mr-2" value="Verwijderen">
+                                                <input type="submit" class="text-red-600 hover:text-red-900 bg-transparent" value="Verwijderen">
                                             </form>
 
                                         </td>
@@ -138,11 +138,10 @@
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-
                                             <form class="inline-block" action="{{ route('user-overview.destroy', $school->school_id) }}" method="POST" onsubmit="return confirm('Weet je zeker dat je de school wil verwijderen?');">
                                                 @csrf
                                                 @method('DELETE')
-                                                <input type="submit" class="text-red-600 hover:text-red-900 mb-2 mr-2" value="Verwijderen">
+                                                <input type="submit" class="text-red-600 hover:text-red-900 bg-transparent" value="Verwijderen">
                                             </form>
                                         </td>
                                     </tr>
@@ -154,9 +153,7 @@
                 </div>
             </div>
 
-            <footer class="pt-3 mt-4 text-gray-500 border-t-2 border-gray-400">
-                © {{ now()->year }}
-            </footer>
+            <x-footer></x-footer>
         </div>
     </div>
 </x-app-layout>

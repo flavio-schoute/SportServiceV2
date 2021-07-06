@@ -5,6 +5,7 @@ namespace App\Http\Controllers\SportService;
 use App\Http\Controllers\Controller;
 use App\Models\School;
 use App\Models\Teacher;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
 
 class UserOverviewController extends Controller {
@@ -26,7 +27,8 @@ class UserOverviewController extends Controller {
         ]);
     }
 
-    public function destroy(School $school) {
+    public function destroy(School $school): RedirectResponse
+    {
         // Select and delete the school from the database
         $school->delete();
 
@@ -34,7 +36,8 @@ class UserOverviewController extends Controller {
         return redirect()->route('user-overview')->with('success', 'School verwijderd!');
     }
 
-	public function destroyTeacher(Teacher $teacher) {
+	public function destroyTeacher(Teacher $teacher): RedirectResponse
+    {
         // Select and delete the user from the database
         $teacher->delete();
 

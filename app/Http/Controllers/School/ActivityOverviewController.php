@@ -19,6 +19,9 @@ class ActivityOverviewController extends Controller {
             ->where('activity_registration.id_school', '=', auth()->user()->id_school)
             ->get();
 
+//        $test = School::with('sports')->get();
+//        dd($test);
+
         return view('school.activity-overview', compact('activities'));
     }
 }
