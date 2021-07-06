@@ -8,6 +8,21 @@
     <div class="py-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
+            @if ($errors->any())
+                <div class="text-white px-6 py-4 border-0 rounded relative mb-4 bg-red-500">
+                    <span class="inline-block align-middle mr-8">
+                        <b class="capitalize italic block mb-2">Whooops!</b>
+
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+
+                    </span>
+                </div>
+            @endif
+
             <form action="{{ route('student-overview.update', $student->student_id) }}" method="POST">
                 @csrf
                 @method('PUT')
@@ -15,7 +30,8 @@
                 @if(auth()->user()->is_admin == 1)
                     <div>
                         <x-jet-label for="school" value="{{ __('School:') }}"/>
-                        <select name="school" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full">
+                        <select name="school"
+                                class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full">
                             @foreach($schools as $school)
                                 <option value="{{$school->school_id}}">{{$school->name}}</option>
                             @endforeach
@@ -25,17 +41,20 @@
 
                 <div class="mt-4">
                     <x-jet-label for="first_name" value="{{ __('Naam:') }}"/>
-                    <x-jet-input id="first_name" class="block mt-1 w-full" type="text" name="first_name" :value="$student->first_name" required/>
+                    <x-jet-input id="first_name" class="block mt-1 w-full" type="text" name="first_name"
+                                 :value="$student->first_name" required/>
                 </div>
 
                 <div class="mt-4">
                     <x-jet-label for="last_name" value="{{ __('Achternaam:') }}"/>
-                    <x-jet-input id="last_name" class="block mt-1 w-full" type="text" name="last_name" :value="$student->last_name" required/>
+                    <x-jet-input id="last_name" class="block mt-1 w-full" type="text" name="last_name"
+                                 :value="$student->last_name" required/>
                 </div>
 
                 <div class="mt-4">
                     <x-jet-label for="group" value="{{ __('Groep:') }}"/>
-                    <select name="group" value="{{ $student->group }}" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full">
+                    <select name="group" value="{{ $student->group }}"
+                            class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full">
                         @for($i = 4; $i < 9; $i++)
                             <option value="{{$i}}" {{$i == $student->group ? 'selected' : ''}}>Groep {{$i}}</option>
                         @endfor
@@ -49,9 +68,7 @@
                 </div>
             </form>
 
-            <footer class="pt-3 mt-4 text-gray-500 border-t-2 border-gray-400">
-                © {{ now()->year }}
-            </footer>
+            <x-footer></x-footer>
         </div>
     </div>
 </x-app-layout>

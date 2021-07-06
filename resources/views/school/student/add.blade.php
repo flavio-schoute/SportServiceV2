@@ -39,6 +39,7 @@
                     <div class="mt-4">
                         <x-jet-label for="group" value="{{ __('Groep (Optioneel)') }}"/>
                         <select name="group" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full">
+                            <option value="0" selected>Selecteer een optie:</option>
                             @for($i = 4; $i < 9; $i++)
                                 <option value="{{$i}}">Groep {{$i}}</option>
                             @endfor
