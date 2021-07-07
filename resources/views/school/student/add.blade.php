@@ -1,0 +1,69 @@
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Leerlingen invoeren') }}
+        </h2>
+    </x-slot>
+
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+
+
+			<div class="flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
+				<div class="w-full sm:max-w-md mb-12 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+
+					<x-jet-validation-errors class="mb-4"/>
+
+					<form method="POST" action="{{ route('students') }}">
+						@csrf
+
+						<div>
+							<x-jet-label for="school" value="{{ __('School') }}"/>
+							<select name="school" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full">
+								@foreach($schools as $school)
+									<option value="{{$school->school_id}}" {{ auth()->user()->is_admin ? '' : ($school->school_id == auth()->user()->id_school ? 'selected' : 'disabled') }}> {{$school->name}}</option>
+								@endforeach
+							</select>
+						</div>
+
+						<div class="mt-4">
+							<x-jet-label for="first_name" value="{{ __('Naam') }}"/>
+							<x-jet-input id="first_name" class="block mt-1 w-full" type="text" name="first_name" :value="old('first_name')"
+										 required/>
+						</div>
+
+						<div class="mt-4">
+							<x-jet-label for="last_name" value="{{ __('Achternaam (Optioneel)') }}"/>
+							<x-jet-input id="last_name" class="block mt-1 w-full" type="text" name="last_name"
+										 :value="old('last_name')"/>
+						</div>
+
+						<div class="mt-4">
+							<x-jet-label for="group" value="{{ __('Groep (Optioneel)') }}"/>
+							<select name="group" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full">
+								<option value="0" selected>Selecteer een optie:</option>
+								@for($i = 4; $i < 9; $i++)
+									<option value="{{$i}}">Groep {{$i}}</option>
+								@endfor
+							</select>
+						</div>
+
+						<div class="mt-4">
+							<x-jet-label for="birthday" value="{{ __('Geboorte datum (Optioneel)') }}"/>
+							<x-jet-input id="birthday" class="block mt-1 w-full" type="date" name="birthday"
+										 :value="old('birthday')"/>
+						</div>
+
+						<div class="flex items-center justify-center mt-4">
+							<x-jet-button>
+								{{ __('Leerling toevoegen') }}
+							</x-jet-button>
+						</div>
+					</form>
+				</div>
+			</div>
+
+            <x-footer></x-footer>
+        </div>
+    </div>
+</x-app-layout>

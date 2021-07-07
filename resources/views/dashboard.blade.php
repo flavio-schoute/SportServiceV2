@@ -14,32 +14,33 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="p-6 sm:px-20 bg-white border-b border-gray-200">
                     <div class="text-3xl">
-                        Welkom {{ Auth::user()->name }}
+                        Welkom {{ Auth()->user()->name }}
                     </div>
 
                     <div class="mt-4 text-gray-500">
                         Maak een keuze het navigatie menu boven in de website.
                     </div>
 
-                    <div class="mt-3 text-gray-500 flex items-center">
-                        Zet de registratie pagina uit:
+                    @if(auth()->user()->is_admin == 1)
 
-                        @inject('injectOptions', 'App\Models\Options')
+                        <div class="mt-3 text-gray-500 flex items-center">
+                            Zet de registratie pagina uit:
 
-                        <div class="ml-2">
-                            <livewire:toggle-button
-                                :model="$injectOptions"
-                                field="value"
-                                myKey="1"
-                            />
+                            @inject('injectOptions', 'App\Models\Options')
+
+                            <div class="ml-2">
+                                <livewire:toggle-button
+                                    :model="$injectOptions"
+                                    field="value"
+                                    myKey="1"
+                                />
+                            </div>
                         </div>
-                    </div>
+					@endif
                 </div>
             </div>
 
-            <footer class="pt-3 mt-4 text-gray-500 border-t-2 border-gray-400">
-                © {{ now()->year }} - Flavio Schoute & Robin Pater by Technova College
-            </footer>
+            <x-footer></x-footer>
         </div>
     </div>
 </x-app-layout>

@@ -7,22 +7,22 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-
             <div class="grid grid-cols-3 gap-4">
                 @foreach($activities as $activity)
                     <div>
                         <div class="flex flex-col max-w-md bg-white px-8 py-6 rounded-xl space-y-5 items-center">
-                            <h3 class="font-serif font-bold text-gray-900 text-xl">{{$activity->name}}</h3>
-                            <p class="text-center leading-relaxed">{{$activity->description}}</p>
+                            <h3 class="font-serif font-bold text-gray-900 text-xl">{{$activity->activityOffer->name}}</h3>
+                            <p class="text-center leading-relaxed">{{$activity->activityOffer->description}}</p>
                             <button class="px-24 py-4 bg-blue-900 rounded-md text-white text-sm focus:border-transparent">Aanmelden</button>
                         </div>
                     </div>
+
                 @endforeach
             </div>
 
-            <footer class="pt-3 mt-4 text-gray-500 border-t-2 border-gray-400">
-                © {{ now()->year }}
-            </footer>
+            {{ $activities->links() }}
+
+            <x-footer></x-footer>
         </div>
     </div>
 </x-app-layout>

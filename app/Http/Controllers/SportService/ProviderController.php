@@ -4,15 +4,17 @@ namespace App\Http\Controllers\SportService;
 
 use App\Http\Controllers\Controller;
 use App\Models\Provider;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
-class AddProviderController extends Controller {
+class ProviderController extends Controller {
 
     public function index() {
 		return view('admin.add-provider');
 	}
 
-	public function store(Request $request){
+	public function store(Request $request): RedirectResponse
+    {
 		// Validation
 		$this->validate($request, [
 			'name' => 'required',
@@ -27,7 +29,7 @@ class AddProviderController extends Controller {
 			'email' => $request->email
 		]);
 
-		// Redirect
+		// R
 		return redirect()->route('dashboard');
 	}
 }
