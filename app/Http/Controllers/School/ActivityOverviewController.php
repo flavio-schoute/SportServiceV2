@@ -4,7 +4,6 @@ namespace App\Http\Controllers\School;
 
 use App\Http\Controllers\Controller;
 use App\Models\ActivityRegistration;
-use Illuminate\Support\Facades\DB;
 
 class ActivityOverviewController extends Controller {
 
@@ -29,9 +28,6 @@ class ActivityOverviewController extends Controller {
         $activities = ActivityRegistration::with('activityOffer')
             ->where('id_school', '=' , auth()->user()->id_school)
             ->get();
-
-//        $test = School::with('sports')->get();
-//        dd($test);
 
         return view('school.activity-overview', compact('activities'));
     }

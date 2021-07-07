@@ -2,7 +2,6 @@
 
 use App\Models\Options;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\DB;
 
 if (!function_exists('isOptionDisabled')) {
 
@@ -31,10 +30,9 @@ if (!function_exists('getOptions')) {
      * Get an option from the database table
      *
      * @param string $key
-     * @param string $database
      * @return Collection
      */
-    function getOptions(string $key, string $database = 'options'): Collection
+    function getOptions(string $key): Collection
     {
         return Options::where('key', '=', $key)->get(['key', 'value']);
     }

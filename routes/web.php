@@ -5,7 +5,7 @@ use App\Http\Controllers\School\ActivityOverviewController;
 use App\Http\Controllers\School\StudentOverviewController;
 use App\Http\Controllers\School\StudentsController;
 use App\Http\Controllers\SportService\ActivityController;
-use App\Http\Controllers\SportService\AddProviderController;
+use App\Http\Controllers\SportService\ProviderController;
 use App\Http\Controllers\SportService\AddSchoolController;
 use App\Http\Controllers\SportService\AddTeacherController;
 use App\Http\Controllers\SportService\LinkSchoolActivityController;
@@ -49,8 +49,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/add-schools', [AddSchoolController::class, 'store']);
 
     // To add providers for the sport activities
-    Route::get('/add-providers', [AddProviderController::class, 'index'])->name('add-providers');
-    Route::post('/add-providers', [AddProviderController::class, 'store']);
+    Route::get('/add-providers', [ProviderController::class, 'index'])->name('add-providers');
+    Route::post('/add-providers', [ProviderController::class, 'store']);
 
     // To add Teachers for Schools
     Route::get('/add-teachers', [AddTeacherController::class, 'index'])->name('add-teachers');

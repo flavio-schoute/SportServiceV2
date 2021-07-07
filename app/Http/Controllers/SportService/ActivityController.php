@@ -14,13 +14,9 @@ class ActivityController extends Controller {
     public function index() {
         $sports = Sports::select('sport_id', 'name')->get();
         $locations = DB::table('activity_locations')->select(['location_id', 'location'])->get();
-        $providers = Provider::select(['provider_id', 'name'])->get();
+        $providers = Provider::select('provider_id', 'name')->get();
 
-        return view('admin.add-activity', [
-            'sports' => $sports,
-            'locations' => $locations,
-            'providers' => $providers
-        ]);
+        return view('admin.add-activity', compact('sports', 'locations', 'providers'));
     }
 
     public function store(Request $request) {

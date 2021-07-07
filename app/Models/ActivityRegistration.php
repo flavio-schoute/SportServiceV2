@@ -14,7 +14,7 @@ class ActivityRegistration extends Model
     protected $guarded = [];
 
     /**
-     * Define the rigth database table for this model.
+     * Define the right database table for this model.
      *
      * @var string
      */
