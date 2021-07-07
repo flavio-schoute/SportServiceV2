@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Options;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
@@ -11,9 +12,10 @@ if (!function_exists('isOptionDisabled')) {
      * @param string $key
      * @return bool If enabled it will return TRUE otherwise FALSE
      */
-    function isOptionEnabled(string $key): bool {
+    function isOptionEnabled(string $key): bool
+    {
         $data = getOptions($key);
-        foreach($data as $item) {
+        foreach ($data as $item) {
             if ($item->value == 1) {
                 return true;
             }
@@ -32,7 +34,8 @@ if (!function_exists('getOptions')) {
      * @param string $database
      * @return Collection
      */
-    function getOptions(string $key, string $database = 'options'): Collection {
-        return DB::table($database)->select('key', 'value')->where('key', '=', $key)->get();
+    function getOptions(string $key, string $database = 'options'): Collection
+    {
+        return Options::where('key', '=', $key)->get(['key', 'value']);
     }
 }
