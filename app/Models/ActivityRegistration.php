@@ -37,7 +37,7 @@ class ActivityRegistration extends Model
         // Also you can make a model for sports and add there a function with a hasMany relation.
         // if you use that you can do like this ActivityRegistration::find(1)->activityOffer->sports;
         // but because i dont have made that model i did it with an leftJoin on the hasOne, see below (line 42).
-        return $this->hasOne('activity_offer', 'uni_activity_name', 'uni_activity_name')
+        return $this->hasOne(ActivityOffer::class, 'uni_activity_name', 'uni_activity_name')
             ->leftJoin('sports', 'activity_offer.id_sport', '=', 'sports.sport_id');
     }
 
