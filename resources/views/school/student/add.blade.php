@@ -7,8 +7,8 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-		
-		
+
+
 			<div class="flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
 				<div class="w-full sm:max-w-md mb-12 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
 
@@ -54,7 +54,6 @@
 										 :value="old('birthday')"/>
 						</div>
 
-
 						<div class="flex items-center justify-center mt-4">
 							<x-jet-button>
 								{{ __('Leerling toevoegen') }}
@@ -64,10 +63,7 @@
 				</div>
 			</div>
 
-
-            <footer class="pt-3 mt-4 text-gray-500 border-t-2 border-gray-400">
-                © {{ now()->year }}
-            </footer>
+            <x-footer></x-footer>
         </div>
     </div>
 </x-app-layout>
